@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web APIs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+ 
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+   
+
+    <title> Web API Basics</title>
+     
+
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="01.js"></script>
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <h1>4.1 Web APIs</h1>
+
+        <h2> Displaying various attributes of retrieved objects</h2>
+        <ul id="movies"></ul>
+
+    </div>
+
+    <div class="container">
+
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            In this experiment, IMDB's unofficial web API (myapifilms.com) is used. 
+            Data comes in JSONP object form. The jQuery parses it and renders it into HTML page.
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        
+
+        <h3> jQuery:</h3>
+        <pre>
+             
+        $.ajax({
+            url: "http://www.myapifilms.com/imdb?title=inception&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=1&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVid",
+            dataType: "jsonp",
+            success: handleResponse
+        });
+               
+
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week4/01AjaxBasic.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week4/01.js" target="_blank">Angular JS</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+
+        <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu" target="_blank"> Professors' Jose lecture </a>
+
+
+    </div>
+
+
+     
+  
+
+
+</body>
+</html>

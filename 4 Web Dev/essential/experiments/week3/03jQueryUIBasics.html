@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+    
+    <link href="jQueryUI/css/jquery-ui.css" rel="stylesheet">
+    <script src="jQueryUI/js/jquery.js"> </script>
+    <script src="jQueryUI/js/jquery-ui.js"> </script>
+    <script src="03.js"> </script>
+
+    <title>03 jQueryUI Introduction</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>3.3  jQueryUI  Introduction </h1>
+        <hr />
+
+        <h1 class="hello"> Hello! </h1>
+
+        <hr />
+
+        <h2> Non drggable Image </h2>
+        <img src="../../images/sample.jpg" />
+
+        <hr />
+
+        <h2> Draggable Image</h2>
+        <img class="dragme" src="../../images/sample.jpg" />
+
+        <hr />
+
+
+        <h2> Draggable Image: Reverts back to original position </h2>
+        <img class="grid" src="../../images/sample.jpg" />
+        <hr />
+
+
+        <h2 class="dragme"> Draggable Text </h2>
+
+        <p class="dragme">  Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32</p>
+        <hr />
+
+        <hr />
+
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment introduces you to the power of jQueryUI.In this example I have generated 
+            the heading dynamically and experiment on "draggable" feature of jQueryUI.
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+        <pre>
+         $(function () {
+                $(".hello").html(" This title is generated dynamically through jQueryUI !!");
+                $(".dragme").draggable();
+                $("#grid").draggable({
+                     revert: true
+                });
+            })
+
+
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week3/03jQueryUIBasics.html " target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week3/03.js" target="_blank">Java Script</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+
+    </div>
+
+</body>
+</html>

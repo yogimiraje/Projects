@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/week2/02.css" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <title>Bootstrap Basics</title>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Product Review</a>
+            </div>
+
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">Browse</a></li>    
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact us</a></li>
+                </ul>
+            </div>  <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="search">
+            <h1> Search the product </h1>
+            <form id="product">
+                <input type="text" class="form-control" name="product" placeholder="e.g. TV, laptop, cellphone " />
+            </form>
+        </div>
+    </div>
+       
+    <hr />
+
+
+    <div class="container">
+        <h1>2.2 Boostrap Basics </h1>
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            As you may have noticed, this page is much more elegant than the previous boring and dull page that was
+            implemented in CSS. Thanks to default styling of Bootstrap !
+        </p>
+
+        <p>
+            This experiment demonstrates some of the basic features provided by boostrap. Boostrap class navbar is
+            very powerful when it comes to navigation. You may see the hover effect, responsiveness of the navigation.
+            As you reduce the size of this page at one point, you will see that the navigation bar is replaced by
+            hold-down element that gives the navigation menu on clicking. The "form-control" class is used for
+            search box.
+        </p>
+
+      
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        <h3>HTML:</h3>
+        <pre>
+        &lt;nav class="navbar navbar-inverse navbar-fixed-top">
+            &lt;div class="container">
+               &lt;div class="navbar-header">
+                  &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                     &lt;span class="sr-only">Toggle navigation</span>
+                     &lt;span class="icon-bar">&lt;/span>
+                     &lt;span class="icon-bar">&lt;/span>
+                     &lt;span class="icon-bar">&lt;/span>
+                     &lt;/button>
+                 &lt;a class="navbar-brand" href="#">Product Review</a>
+              &lt;/div>
+         &lt;/div>   
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week2/02BootstrapBasics.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/css/week2/02.css" target="_blank">CSS Source</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.getbootstrap.com/" target="_blank"> Getbootstrap.com </a>
+
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

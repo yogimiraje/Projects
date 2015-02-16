@@ -1,0 +1,6 @@
+﻿../../story/whatisnext.htm?../experiments/week3/story.txt                     What is next? 
+01jsBasics.html																  JavaScript Basics
+02jsMore.html																  More on JavaScript
+03jQueryUIBasics.html                                                         JavaScriptUI Basics
+04jQueryUIMore.html                                                           More on JavaScriptUI
+05jQPuzzle.html                                                               Word Puzzle using JavaScriptUI

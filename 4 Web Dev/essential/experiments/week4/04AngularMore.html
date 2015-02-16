@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <link href="../../css/template.css" rel="stylesheet">
+
+
+    <title> Angular js Basics</title>
+    <script src="js/angular.min.js"></script>
+    <script src="04.js"></script>
+</head>
+<body ng-app="LocationApp">
+
+    <div class="container">
+        <h1> 4.4 Angular JS Event Handling </h1>
+
+        <h3> Click on any of the Top New york attractions: </h3>
+        <br />
+        <br />
+
+        <div ng-controller="LocationAppController">
+
+            <div class="container">
+                <div class="col-sm-3">
+                    <img ng-click="empire()" src="../../images/empire.jpg" class="img-circle" width="150" height="200" />
+                </div>
+
+                <div class="col-sm-3">
+                    <img ng-click="liberty()" src="../../images/liberty.jpg" class="img-circle" width="150" height="200" />
+                </div>
+
+                <div class="col-sm-3">
+                    <img ng-click="rockfellar()" src="../../images/rockfellr.jpg" class="img-circle" width="150" height="200" />
+                </div>
+
+                <div class="col-sm-3">
+                    <img ng-click="timesSquare()" src="../../images/timesSquare.jpg" class="img-circle" width="150" height="200" />
+                </div>
+            
+                </div>
+
+            <br />
+            <br />
+
+
+            <div class="container">
+
+                <div class="col-sm-3">
+                </div>
+
+                <div class="col-sm-7">
+                <h3> You have entered {{LocationDetails}} ! </h3>
+                </div>
+
+                <div class="col-sm-2">
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment explains the even handling feature of Angular JS. When you click on any of the 
+            images above, name is updated dynamically on the web page. This is achieved by "ng-click" directive 
+            that calls respective function in jQuery, that in turn updated the string object on the page.
+
+
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        <h3>HTML:</h3>
+
+
+        <pre>
+            &lt;div class="col-sm-3">
+                &lt;img ng-click="empire()" src="../../images/empire.jpg" class="img-circle" width="150" height="200" />
+            &lt;/div>
+        
+        </pre>
+
+        <h3>Angular JS:</h3>
+        <pre>
+
+             var app = angular.module("LocationApp", []);
+                app.controller("LocationAppController",
+                 function ($scope) 
+                   {
+                        $scope.LocationDetails = "New york !"
+                        $scope.empire = function () {
+                            console.log("Empire");
+                            $scope.LocationDetails = "Empire State Building "
+    
+                    }                
+            
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week4/04AngularMore.html " target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week4/04.js" target="_blank">Angular JS</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+
+        <a href="https://angularjs.org/" target="_blank"> Angular JS </a>
+     
+
+    </div>
+    <!-- Bootstrap core JavaScript
+       ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../js/jquery.min.js"></script>
+
+    <script src="../../../js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

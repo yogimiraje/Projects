@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+   
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <title>02 More on Javascript  </title>
+    <script src="02.js"> </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>3.2  JavaScript onmousehover Image </h1>
+        <hr />
+
+        <img src="../../images/planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap" />
+
+        <map name="planetmap">
+            <area shape="rect" coords="0,0,82,126"
+                  onmouseover="writeText('The Sun and the gas giant planets like Jupiter are by far the largest objects in our Solar System.')"
+                  href="sun.htm" target="_blank" alt="Sun" />
+
+            <area shape="circle" coords="90,58,3"
+                  onmouseover="writeText('The planet Mercury is very difficult to study from the Earth because it is always so close to the Sun.')"
+                  href="mercur.htm" target="_blank" alt="Mercury" />
+
+            <area shape="circle" coords="124,58,8"
+                  onmouseover="writeText('Until the 1960s, Venus was often considered a twin sister to the Earth because Venus is the nearest planet to us, and because the two planets seem to share many characteristics.')"
+                  href="venus.htm" target="_blank" alt="Venus" />
+        </map>
+
+        <h3 id="desc">Mouse over the sun and the planets and see the different descriptions.</h3>
+
+        <hr />
+
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment demonstrates how you can use javascript onmousehover feacture to display the 
+            text your mouse pointing to. In the image, just hover over the planets to find more about 
+             that planet. Certain portion of image is marked with coordinates to make the boundries and whenever 
+            the mouse is hovering over that portion it displays the corresponding text.
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+        <pre>
+             function writeText(txt) {
+                document.getElementById("desc").innerHTML = txt;
+             }
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week3/02jsMore.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week3/02.js" target="_blank">Java Script</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+
+    </div>
+
+
+</body>
+</html>

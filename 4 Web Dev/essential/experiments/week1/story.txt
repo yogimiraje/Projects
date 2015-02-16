@@ -1,0 +1,6 @@
+﻿../../story/whatisnext.htm?../experiments/week1/story.txt                      What is next? 
+01HTMLBasics.html                                                              HTML Basics
+02HTMLForms.html                                                               HTML Forms
+03PageLayout.html                                                              Page Layouts in HTML
+04CSS.html                                                                     CSS Basics
+05ResponsiveDesign.html                                                        Responsive Design

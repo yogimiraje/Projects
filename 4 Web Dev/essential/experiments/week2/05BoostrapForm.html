@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/week2/05.css" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <title>Bootstrap Forms</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>2.5 Forms using Bootstrap </h1>  
+        <hr />
+
+        <div class="col-sm-2">
+        </div>
+
+
+        <div class="col-sm-8">
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name </label>
+                    <input type="text" class="form-control" id="name" placeholder="FirsName  LastName">
+                </div>
+
+                <div class="form-group">
+                    <label for="product">Product </label>
+                    <input type="text" class="form-control" id="product" placeholder="e.g iPhone,laptop,car">
+                </div>
+              
+
+                <div class="form-group">
+                    <label for="place">Where did you buy? </label>
+                    <input type="text" class="form-control" id="place" placeholder="e.g Amazon,ebay">
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewForm_rating" class="required">How would you rate this product? </label>
+                    <select id="reviewForm_rating" name="reviewForm[rating]" required="required" data-focus-element="rating-scroll" class="form-control"><option value="" selected="selected">Select a rating</option><option value="1">Terrible - 1 star</option><option value="2">Bad - 2 stars</option><option value="3">OK - 3 stars</option><option value="4">Good - 4 stars</option><option value="5">Excellent - 5 stars</option></select>
+                    <div id="reviewForm_stars">
+                        <div id="rateit-stars" data-rateit-backingfld="#reviewForm_rating" data-rateit-resetable="false" data-rateit-max="5" data-rateit-starwidth="30" data-rateit-starheight="30" data-rateit-step="1"></div>
+                      
+                    </div>
+                </div>
+
+                
+                <label for="myreview">My Review </label>
+                <textarea class="form-control" rows="6" id="myreview"></textarea>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I accept
+                    </label>
+                    <a href="#"> the terms and conditions </a>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+
+      
+        <div class="col-sm-2">
+
+        </div>
+    </div>
+
+    <div class="container">
+       
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment shows how you can build some beautiful forms using bootstrap.This is shown using a page 
+            where you are going to review a product. Boostrap has some in-built classes such form-group,
+            checkbox,btn ( for buttons). Use these class to make boring forms interesting and elegant!
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        <h3>HTML:</h3>
+        <pre>
+            &lt;div class="form-group">
+                 &lt;label for="exampleInputEmail1">Email address&lt;/label>
+                 &lt;input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            &lt;/div>
+        
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week2/05BoostrapForm.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/css/week2/05.css" target="_blank">CSS Source</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.getbootstrap.com/" target="_blank"> Getbootstrap.com </a>
+
+    </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

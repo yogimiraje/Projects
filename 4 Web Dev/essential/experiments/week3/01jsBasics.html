@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <title>01 Javascript basics </title>
+    <script src="01new.js"> </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>3.1 JavaScript Basics </h1>
+        <hr />
+
+        
+        <h2>Changing the heading</h2>
+        <p id="demo">I can be changed. Click button below.</p>
+
+        <button type="button" onclick=change()> Click here </button>
+
+        <hr />
+
+        <h2>Throwing the alert</h2>
+
+        <button type="button" onclick=throwAlert()> Show Alert </button>
+
+        <hr />
+
+        <h2> Resetting the form </h2>
+
+        <form id="frm1">
+            First name: <input type="text" name="fname"><br> <br /><br />
+            Last name: <input type="text" name="lname"><br><br>
+            <input type="button" onclick="myFunction()" value="Reset">
+        </form>
+
+        <p id="form3">
+            Click button to reset the form.
+            <br /><br />
+        </p>
+        <hr />
+
+
+        <h2> Displaying data from Drop Down</h2>
+
+        <form>
+            Select your Company:
+            <select id="mySelect">
+                <option>Apple</option>
+                <option>Google</option>
+                <option>Facebook</option>
+                <option>Amazon</option>
+            </select>
+            <br><br>
+            <input type="button" onclick="getOption()" value="Click Me!">
+
+        </form>
+        <br />
+
+        <p id="opt"> </p>
+        <hr />
+
+        <h2> About this experiment</h2>
+
+        <p>
+           This experiment demonstrated the basic things you can do with javascript. You can change the 
+            contens of html, apped data to html. You can also throw alert, read data from a fom and display
+            on the page back.
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+        <pre>
+                    function change() {
+    
+                        document.getElementById('demo').innerHTML = 'Hello JavaScript!'
+                    }
+
+                    function throwAlert()
+                    {
+                        window.alert("You got it !!!");
+                    }
+
+                    function myFunction(){
+   
+                        document.getElementById("frm1").reset();
+                    }
+
+                    function getOption() {
+                        var obj = document.getElementById("mySelect");
+                        document.getElementById("opt").innerHTML =
+                        obj.options[obj.selectedIndex].text;
+                    }
+
+
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week3/01jsBasics.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week3/01new.js" target="_blank">Java Script</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+
+   </div>
+</body>
+</html>

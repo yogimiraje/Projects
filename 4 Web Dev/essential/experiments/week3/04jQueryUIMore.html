@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    
+    <title>04 jQuery More</title>
+    <link href="jQueryUI/css/jquery-ui.css" rel="stylesheet">
+    <script src="jQueryUI/js/jquery.js"> </script>
+    <script src="jQueryUI/js/jquery-ui.js"> </script>
+    <script src="04.js"> </script>
+
+  
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1> 3.4 jQuery: Exploring Resizing </h1>
+
+        <hr />
+
+        <h2> Default Resizable Image</h2>
+
+        <img class="resizeme" src="../../images/sample.jpg" />
+
+        <hr />
+
+
+        <h2> Resizable in all directions </h2>
+
+        <img class="resizemeall" src="../../images/sample.jpg" />
+
+        <hr />
+
+
+        <h2> Limited Resizing ( Min: 200 X 200, Max: 800 X 800)</h2>
+
+        <img class="resizeme1 resizemeall" src="../../images/sample.jpg" />
+        <hr />
+
+
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment shows you how jQueryUi helps you resizing the images.
+            The default resizing is only for three direction. When you add handles for the directions you
+            want, you will get the resizing in desired directions.
+            You may also restrict the extent to which you need resizing by specifying
+            minWidth, minHeight, maxHeight, maxWidth.
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+        <pre>
+            $(function () {
+                $(".resizeme").resizable();
+                $(".resizemeall").resizable({
+                    handles: "n, e, s, w, ne, se, sw, nw"
+                });
+                $(".resizeme1").resizable({
+                    minWidth: 200,minHeight:200,maxHeight:800,maxWidth:800
+                });
+            })
+
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week3/04jQueryUIMore.html  " target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week3/04.js" target="_blank">Java Script</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+
+    <title> Angular js Basics</title>
+    <script src="js/angular.min.js"></script>
+    <script src="05.js"></script>
+</head>
+<body ng-app="BuyingListApp">
+
+    <div class="container">
+        <h1> 4.5 To Buy list application</h1>
+
+        <h3> Enter the things that you want to buy: </h3>
+        
+        <br />
+
+
+        <div ng-controller="BuyingListAppController">
+        
+         
+            <form ng-submit="addToBuy()">
+                <input type="text" ng-model="toBuyInput" size="50" placeholder="Add the item">
+                <input type="submit" value="Add New">
+            </form>
+
+            <br>
+            
+
+            <div ng-repeat="x in toBuyList">
+                <input type="checkbox" ng-model="x.done"> <span ng-bind="x.toBuyText"></span>
+
+
+            </div>
+
+            <br />
+
+            <p><button ng-click="removeFromList()">Remove marked</button></p>
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="container">
+
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiments demonstrates a simple list maintenance application.
+            All the objects are stored locally. Whenever a new item is added to list addToBuy function is called
+            that add the new item to the list using push function.
+            For removing the items from list, ng-model=x.done directive is used which has boolean value based on its
+            checked status. Whenver remove function is called , list is emptied and using angular.forEach
+            new list is created with items which has 'x.done' value as false.
+
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        <h3>HTML:</h3>
+        <pre>
+            &lt;form ng-submit="addToBuy()">
+            &lt;input type="text" ng-model="toBuyInput" size="50" placeholder="Add the item">
+            &lt;input type="submit" value="Add New">
+            &lt;/form>
+            &lt;br>
+            
+            &lt;div ng-repeat="x in toBuyList">
+                &lt;input type="checkbox" ng-model="x.done"> &lt;span ng-bind="x.toBuyText">&lt;/span>
+            &lt;/div>
+            &lt;br />
+            &lt;p>&lt;button ng-click="removeFromList()">Remove marked&lt;/button>&lt;/p>
+
+        
+        </pre>
+
+        <h3>Angular JS:</h3>
+        <pre>
+        function ($scope) {
+        $scope.toBuyList = [{ toBuyText: 'Milk', done: false}, 
+                            { toBuyText: 'Bread', done: false }];
+        
+        $scope.addToBuy = function ()
+        {
+             
+            $scope.toBuyList.push({
+                toBuyText: $scope.toBuyInput, done: false
+            });
+            toBuyInput = "";
+        };
+        
+        $scope.removeFromList = function () {
+            console.log("in remove");
+            var oldList = $scope.toBuyList;
+            $scope.toBuyList = [];
+            angular.forEach(oldList, function (x) {
+                if (!x.done) $scope.toBuyList.push(x);
+            });
+        };
+
+        
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week4/05ToBuyList.html " target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week4/05.js" target="_blank">Angular JS</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+
+        <a href="https://angularjs.org/" target="_blank"> Angular JS </a>
+        <br />
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+    </div>
+    
+    
+
+</body>
+
+</html>

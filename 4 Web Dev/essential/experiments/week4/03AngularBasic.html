@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+    <title> Angular js Basics</title>
+    <script src="js/angular.min.js"></script>
+    <script src="03.js"></script>
+</head>
+<body ng-app="BasicApp">
+
+    <div class="container">
+        <h1> 4.3 Basics of Angular Js </h1>
+
+        <h3> Changing contents dynamically </h3>
+        <div>
+
+            <p> Type here: <input type="text" ng-model="text" />  </p>
+
+            <p> You are typing.... </p>
+
+            <p ng-bind="text"> </p>
+
+
+        </div>
+        <br />
+        <br />
+
+        <hr />
+
+        <h3> Rendering data from a jSONobject </h3>
+
+        <br />
+
+
+        <div ng-controller="BasicAppController">
+
+            <div class="col-sm-4">
+            </div>
+
+            <div class="col-sm-4">
+           
+                <table class="table table-striped table-hover table-condensed">
+                    <thead>
+                        <tr class="active"> 
+                            <th> Product </th>
+                            <th> Price </th>
+                       </tr>  
+
+                    <tr ng-repeat="p in products">
+                        <td> {{p.pname}} </td>
+                        <td> {{p.price}} </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="col-sm-4">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <hr />
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment introduces some simple things you can achieve using Angular JS. 
+            The first part allows dynamic update of the HTML. This achieved by same value of ng directives to 
+            paragraph and input form. In the second example, a jSON object is rendered on HTML page.
+            For the sake of ease, I have used a hardcoded object, however in practical applications, 
+            object is retrieved from web API as we saw in previous examples.
+
+
+        </p>
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+
+        <h3>HTML:</h3>
+        <pre> 
+
+            &lt;p> Type here: &lt;input type="text" ng-model="text" />  &lt;/p>
+            &lt;p> You are typing.... &lt;/p>
+            &lt;p ng-bind="text"> &lt;/p>
+        
+            &lt;tr ng-repeat="p in products">
+            &lt;td> {{p.pname}} &lt;/td>
+            &lt;td> {{p.price}} &lt;/td>
+            &lt;/tr>
+
+        </pre>
+
+        <h3>Angular JS:</h3>
+        <pre>
+            var app = angular.module("BasicApp", []);
+            app.controller("BasicAppController",
+            function ($scope) {
+                var product = {
+                    pname: "nexus",
+                    price: "$200"
+                };
+                $scope.product = product;
+                var products = [
+                    { pname: "iphone", price: "$500" },
+                    { pname: "ipad", price: "$700" },
+                    { pname: "macbook pro", price: "$1000" },
+                    { pname: "macbook pro retina ", price: "$1300" },
+                    { pname: "iMac", price: "$2100" },
+                ];
+                $scope.products = products;
+  
+            });
+        </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week4/03AngularBasic.html " target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week4/03.js" target="_blank">Angular JS</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+
+        <a href="https://angularjs.org/" target="_blank"> Angular JS </a>
+     
+
+    </div>
+    <!-- Bootstrap core JavaScript
+       ================================================== -->
+   
+</body>
+
+</html>

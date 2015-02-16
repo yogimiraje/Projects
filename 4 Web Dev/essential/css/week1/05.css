@@ -1,0 +1,24 @@
+﻿
+
+
+@media screen and (max-width:350px)
+{
+    body{
+        background-color:yellow;
+}
+}
+
+@media screen and (min-width:350px) and (max-width:800px)
+{
+    body{
+        background-color:red;
+}
+}
+
+@media screen and (min-width:800px)
+{
+    body{
+        background-color:grey;
+}
+}
+

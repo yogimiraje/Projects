@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Web APIs</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="02.js"></script>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>4.2 Search using Web API </h1>
+
+        <h2> Displaying poster of the movie</h2>
+
+        <form>
+            <label>Enter the movie name: </label>
+            <br /> 
+
+            <input type="text" id="title" />
+        </form>
+
+        <br /> 
+        <button type="button" id="myButton"> View Poster </button>
+        <br /> <br />
+        <p id="poster">
+
+
+        </p>
+
+        </div>
+
+        <div class="container">
+
+
+            <hr />
+            <h2> About this experiment</h2>
+
+            <p>
+                This experiments demonstrates power of Web APIs, when combined with user interaction.
+                User enters the movie poster , he/ she wants see. The title is parsed by jQuery function and 
+                web API is called for the entered movie titled. Only the poster is parsed from retrieved 
+                JSONP object and rendered on the web page.
+            </p>
+
+
+            <hr />
+
+            <h2>Code snippet</h2>
+
+            
+            <h3> jQuery:</h3>
+            <pre>
+            $(document).ready(function() {
+                $('#myButton').click(function () {
+                    console.log("in button");
+                    var title = $('#title').val();
+                    console.log(title);
+      
+                    $.ajax({
+                        url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=1&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVid",
+                        dataType: "jsonp",
+                        success: handleResponse
+                    })
+                });
+            });
+              
+
+        
+        </pre>
+
+            <hr />
+            <h2>Code source</h2>
+
+            <a href="../../fileview/Default.aspx?~/experiments/week4/02AjaxSearch.html" target="_blank">HTML Source</a>
+            <br /><br />
+            <a href="../../fileview/Default.aspx?~/experiments/week4/02.js" target="_blank">Angular JS</a>
+
+            <hr />
+
+            <h2>Reference</h2>
+
+            <a href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu" target="_blank"> Professors' Jose lecture </a>
+
+
+
+        </div>
+
+</body>
+</html>

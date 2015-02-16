@@ -1,0 +1,52 @@
+﻿body {
+         background: url(../../images/4.png);
+         
+    }
+
+ul {
+    list-style-type:circle;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    display:inline;
+    padding:10px;
+}
+
+h3 {
+    text-shadow: 5px 5px 5px #FF0000;
+   
+}
+
+
+.center {
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+
+.anim {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-animation: myfirst 10s;  
+    animation: myfirst 10s;
+}
+
+.med{
+      border : 2px solid  #1C1C1C;
+    
+}
+
+
+@-webkit-keyframes myfirst {
+    from {background: red;}
+    to {background: yellow;}
+}
+
+
+@keyframes myfirst {
+    from {background: red;}
+    to {background: yellow;}
+}

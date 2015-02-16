@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>;
+
+    <!---- template modified - local css -->
+    <link href="../../css/template.css" rel="stylesheet">
+
+
+
+    <title>05 jQueryUI Word Puzzle </title>
+    <link href="jQueryUI/css/jquery-ui.css" rel="stylesheet">
+    <link href="../../css/week3/05.css" rel="stylesheet" >
+    <script src="jQueryUI/js/jquery.js"> </script>
+    <script src="jQueryUI/js/jquery-ui.js"> </script>
+    <script src="./05.js" > </script>
+   
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1> 3.5 jQueryUI: Sortable Interaction  </h1>
+
+        <hr />
+
+        <h1> Words puzzle </h1>
+
+        <h3> Form five words from the below tiles. Drag and drop the tiles to make your word ! </h3>
+
+        <ul id="sortable">
+            <li class="ui-state-default">A</li> 
+            <li class="ui-state-default">O</li>
+            <li class="ui-state-default">D</li>
+            <li class="ui-state-default">O</li>
+
+            <li class="ui-state-default">G</li>
+            <li class="ui-state-default">T</li>
+
+            <li class="ui-state-default">P</li>
+            <li class="ui-state-default">L</li>
+
+            <li class="ui-state-default">L</li>
+            <li class="ui-state-default">E</li>
+            <li class="ui-state-default">O</li>
+            <li class="ui-state-default">H</li>
+
+            <li class="ui-state-default">A</li>
+            <li class="ui-state-default">E</li>
+
+            <li class="ui-state-default">A</li>
+            <li class="ui-state-default">O</li>
+
+            <li class="ui-state-default">P</li>
+            <li class="ui-state-default">R</li>
+            <li class="ui-state-default">L</li>
+            <li class="ui-state-default">G</li>
+        </ul>
+
+
+        </div>
+
+      <div class="container">
+          <hr />
+
+        <h2> About this experiment</h2>
+
+        <p>
+            This experiment shows you how jQueryUI can help you in sorting the elements.
+            To arrange sortable items as a grid, I have given them identical dimensions and floated them using CSS.
+
+
+
+        <hr />
+
+        <h2>Code snippet</h2>
+        <pre>
+          $(function () {
+                $(function () {
+                    $("#sortable").sortable();
+                    $("#sortable").disableSelection();
+                });
+            })
+                    </pre>
+
+        <hr />
+        <h2>Code source</h2>
+
+        <a href="../../fileview/Default.aspx?~/experiments/week3/05jQPuzzle.html" target="_blank">HTML Source</a>
+        <br /><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week3/05.js" target="_blank">Java Script</a>
+
+        <hr />
+
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/" target="_blank"> W3Schools </a>
+
+
+    </div>
+
+</body>
+</html>
