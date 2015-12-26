@@ -1,0 +1,184 @@
+﻿ 
+
+<div class="container padtop90">
+ 	
+	  <div class="col-md-3">
+	  </div>
+	
+	  
+	<div class="col-md-6">
+		 <h3 class="text-cadetBlue text-center"> Fields with * are mandatory.</h3>
+	
+        <form role="form" class="text-grey" id="regForm" name="myForm"  ng-submit="register(newuser)">
+           		 
+                <div class="form-group">
+                    <label for="first">First Name</label>
+                    <div class="input-group">
+                        <input ng-model="newuser.first" type="text" class="form-control" name="first" id="first" placeholder="First Name" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">First name is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="last">Last Name</label>
+                    <div class="input-group">
+                        <input ng-model="newuser.last" type="text" class="form-control" name="last" id="last" placeholder="Last Name" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">Last name is required.</span>
+
+                    </div>
+                </div>
+
+
+            <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <input ng-model="newuser.username" type="text" class="form-control" name="userName" id="userName" placeholder="Username" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">User name is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd">Password </label>
+                    <div class="input-group">
+                        <input ng-model="newuser.password" type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">Password is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd2">Confirm Password </label>
+                    <div class="input-group">
+                        <input ng-model="newuser.password2" type="password" class="form-control" name="pwd2" id="pwd2" placeholder="Password" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">Password is required.</span>
+
+                    </div>
+                </div>
+
+ 				 
+
+			<div class="form-group">
+               <label for="newuserEmail">Enter Email ID</label>
+               <div class="input-group">
+                   <input ng-model="newuser.email" type="email" class="form-control" id="newuserEmail" name="newuserEmail" placeholder="somebody@something.com" required>
+                   <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                   <span ng-show="myForm.user.$error.required">email ID is required.</span>
+               </div>
+        	   </div>
+				
+				 <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="input-group">
+                        <input ng-model="newuser.address" type="text" class="form-control" name="address" id="address" placeholder="San Jose, CA" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required">Address is required.</span>
+
+                    </div>
+                </div>
+
+				 <div >
+					<label > Upload Profile picture </label>
+				 </div>
+				 
+				 <div class="col-md-6" >
+					 	
+						 <input ng-model="photo" class="form-control" id="filePicker" type="file">
+				 </div>
+					
+				 <div class="col-md-6" >
+               		<img ng-src="{{loc}}" width="100" height="100" class="avatar img-thumbnail pull-right" alt="avatar">
+              	 </div>
+					
+					
+				<div class="form-group">
+	               
+	              <input type="checkbox" name="recepient" ng-model="recepient"> I am a recipient <br>
+	              
+                </div>
+                
+				<div class="form-group" ng-show="recepient">
+	                    <label for="needCategory">Choose the category that most suits you 
+	                     </label>
+	                    <div >
+	                    	<select ng-model="newuser.need.category" class="form-control" required>
+	                     	<option value="sfather">Single father</option>
+							<option value="smother">Single Mother</option>
+						    <option value="senior">Senior Citizens </option>
+							<option value="kids">kids</option>
+						    <option value="family">Families</option>
+							<option value="disbaled">Disabled</option>
+						    <option value="education">Education</option>
+					        <option value="medical">Medical Treatment</option>
+						 
+							<option value="other">Other</option>
+ 							</select>
+	
+	                    </div>
+                </div>
+               
+                
+				
+				 <div class="form-group" ng-show="recepient">
+	                    <label for="needSummary">Summary of your need </label>
+	                    <div class="input-group">
+	                        <input ng-model="newuser.need.summary" type="text" class="form-control" name="needSummary" id="needSummary" placeholder="one line desciption of your need" ng-required="recepient">
+	                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+	                        <span ng-show="myForm.user.$error.required"> Summary is required.</span>
+	
+	                    </div>
+                </div>
+
+                <div class="form-group" ng-show="recepient">
+                    <label for="needAmount">Amount you need </label>
+                    <div class="input-group">
+                        <input ng-model="newuser.need.amount" type="number" min="1" class="form-control" name="needAmount" id="needAmount" placeholder="Specify the amount you need in $" ng-required="recepient">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required"> Amount is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="recepient">
+                    <label for="needText"> Brief description of your need </label>
+                    <div class="input-group">
+                        <textarea ng-model="newuser.need.text" type="text" class="form-control" name="needText" id="needText" rows="6" placeholder="Describe your need" ng-required="recepient"> </textarea>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        <span ng-show="myForm.user.$error.required"> Description is required.</span>
+
+                    </div>
+                </div>
+
+            
+                <div class="form-group">
+
+                    <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                </div>
+
+ 
+                <div class="form-group">
+                    <br />
+                    <br />
+ 					 <span ng-show="needErrMessage" id="dangerMsg"> <b> Please fill  all the fields about your need </b></span>
+ 					 <br />
+                    <span ng-show="passwordNotMatchMessage" id="dangerMsg"> <b> Password and retyped password do not match.</b></span>
+
+                    <span ng-show="userExistsMessage" id="dangerMsg"> <b>This user name is already taken. Please enter some other user name</b></span>
+
+                    </div>
+                
+		 </form>
+	 </div>
+	 
+	 <div class="col-md-3">
+	  </div>
+	  
+ 
+</div>
+   

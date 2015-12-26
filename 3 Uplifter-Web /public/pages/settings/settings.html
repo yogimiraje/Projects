@@ -1,0 +1,195 @@
+﻿
+<div class="container">
+    
+    <div class="container padtop70">
+    <div class="row">
+	
+	  <div class="col-lg-1">
+	  </div>
+	  
+	  <div class="col-lg-2" >
+	       <form name="frmUpload" id ="frmUpload">
+	       
+	  		<img ng-src="{{user.imgurl}}" width="150" height="150" class="avatar img-thumbnail" alt="avatar">
+	        
+	          <input ng-model="photo"  name="myFile" class="form-control hidden" id="filePicker"   type="file">
+	          
+	          <!-- Fake field to fool the user -->
+    		   <input type="text" name="txtFakeText" class = "hidden" readonly="true">
+     			
+   		 	
+   			  	
+			    <input type="button"  onclick="HandleFileButtonClick();" 
+      			   value="Upload new pic" id="uploadButton" class ="btn-primary">	
+      			  
+      		       
+			</form>
+
+	      
+		</div>		
+	  
+	  
+	<div class="col-lg-6">
+        
+        	<div class="tabbable tabs-below">
+			  <ul class="nav nav-pills">
+			    <li ng-class="{active: selectedTab == 1}">
+			      <a href="#/settings" ng-click="selectedTab = 1;">Account Settings</a>
+			    </li>
+			    <li ng-class="{active: selectedTab == 2}">
+			      <a href="#/settings" ng-click="selectedTab = 2;">Edit Profile</a>
+			    </li>
+			    
+			  </ul>
+			
+			  <div class="tab-content center-block" ng-show="selectedTab == 1">
+			  
+			      <form role="form" id="myForm" class="text-grey" name="myForm" ng-submit="update(user)">
+			  
+			   	    <div class="form-group">
+		               <label for="userEmail"> Email ID</label>
+		               <div class="input-group">
+		                   <input ng-model="user.email" type="email" class="form-control" id="userEmail" name="userEmail" placeholder="somebody@something.com" required>
+		                        <span class="input-group-addon"></span>
+		                   <span ng-show="myForm.user.$error.required">email ID is required.</span>
+		               </div>
+        	 	  </div>
+        	   
+        	      <div class="form-group">
+                    <label for="pwd">Password </label>
+                    <div class="input-group">
+                        <input ng-model="user.password" type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" required>
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required">Password is required.</span>
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <input type="submit" name="submit" id="submit" value="Update" class="btn btn-info pull-right">
+                </div>
+                
+				</form>
+			  </div>
+			
+			  <div class="tab-content center-block" ng-show="selectedTab == 2">
+			  
+			      <form role="form" id="myForm" class="text-grey" name="myForm" ng-submit="update(user)">
+			  
+			  			<div class="form-group">
+                    <label for="first">First Name</label>
+                    <div class="input-group">
+                        <input ng-model="user.first" type="text" class="form-control" name="first" id="first" placeholder="First Name" required>
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required">First name is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="last">Last Name</label>
+                    <div class="input-group">
+                        <input ng-model="user.last" type="text" class="form-control" name="last" id="last" placeholder="Last Name" required>
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required">Last name is required.</span>
+
+                    </div>
+                </div>
+
+
+			
+				 <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="input-group">
+                        <input ng-model="user.address" type="text" class="form-control" name="address" id="address" placeholder="San Jose, CA" required>
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required">Address is required.</span>
+
+                    </div>
+                </div>
+
+
+
+				<div class="form-group" ng-show="user.need.summary">
+	                    <label for="needCategory">Choose the category that most suits you </label>
+	                    <div >
+	                    	<select ng-model="user.need.category" class="form-control">
+	                     	<option value="sfather">Single father</option>
+							<option value="smother">Single Mother</option>
+						    <option value="senior">Senior Citizens </option>
+							<option value="kids">kids</option>
+						    <option value="family">Families</option>
+							<option value="disbaled">Disabled</option>
+						    <option value="education">Education</option>
+					        <option value="medical">Medical Treatment</option>
+					        <option value="other">Other</option>
+						    
+  							</select>
+ 	
+	                    </div>
+                </div>
+					
+				
+				 <div class="form-group" ng-show = "recipient">
+	                    <label for="needSummary">Summary of your need </label>
+	                    <div class="input-group">
+	                        <input ng-model="user.need.summary" type="text" class="form-control" name="needSummary" id="needSummary" placeholder="one line desciption of your need" ng-required="recipient">
+                        <span class="input-group-addon"></span>
+	                        <span ng-show="myForm.user.$error.required"> Summary is required.</span>
+	
+	                    </div>
+	                </div>
+
+               <div class="form-group"	ng-show = "recipient">
+                    <label for="needAmount">Amount you need </label>
+                    <div class="input-group">
+                        <input ng-model="user.need.amount" type="number" min="1" class="form-control" name="needAmount" id="needAmount" placeholder="Specify the amount you need in $" ng-required="recipient">
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required"> Amount is required.</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show = "recipient">
+                    <label for="needText"> Brief description of your need </label>
+                    <div class="input-group">
+                        <textarea ng-model="user.need.text" type="text" class="form-control" name="needText" id="needText" rows="6" placeholder="Describe your need" ng-required="recipient"> </textarea>
+                        <span class="input-group-addon"></span>
+                        <span ng-show="myForm.user.$error.required"> Description is required.</span>
+
+                    </div>
+                </div>
+			  			
+			  	 <div class="form-group">
+
+                    <input type="submit" name="submit" id="submit" value="Update" class="btn btn-info pull-right">
+              	  </div>		
+			  	 </form>
+			  </div>
+			  
+			  
+			 </div> 
+			  
+             
+            
+                
+ 
+                <div class="form-group">
+                   <br />
+                    <br />
+                    <span ng-show="sucessfulMessage" id="succMsg"> <b>Your profile is updated Successfully ! </b></span>
+
+                 
+                 </div>
+                
+		
+	 </div>
+	 
+	 <div class="col-lg-3">
+	  </div>
+	  
+    </div>
+
+</div>
+   
+</div>

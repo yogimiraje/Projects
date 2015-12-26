@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Uplifter</title>
+	 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <title> Uplifter</title>
+	
+    <!-- Bootstrap -->
+   	<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- siimple style -->
+    <link rel="stylesheet" href="css/style.css">
+    
+ 
+
+    <link rel="stylesheet" href="css/template.css">
+    
+    <link rel="stylesheet" href="css/pad.css" />
+ 	
+	<script src="lib/jquery.min.js"></script> 
+	 <script src="lib/jquery-ui.js"></script> 
+	
+   	<script src="lib/bootstrap.min.js"></script>
+   
+    	
+   	
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+
+    <script src="lib/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    
+    
+    <script src="js/app.js"></script>	
+    <script src="js/chkloginService.js"></script>
+    <script src="js/profileService.js"></script>
+    
+    <script src="pages/home/home.js"></script>
+    <script src="pages/home/loginController.js"></script>
+    <script src="pages/register/registerController.js"></script>
+    <script src="pages/view/viewController.js"></script>
+    <script src="pages/view/viewDetailController.js"></script>
+    <script src="pages/profile/profileController.js"></script>
+        <script src="js/uploadPic.js"></script>
+    
+     
+    <script src="pages/profile/publicProfileController.js"></script>
+    
+    <script src="pages/settings/settingsController.js"></script>
+    
+    <script src="pages/contact/contactController.js"></script>
+	
+
+
+</head>
+
+<body ng-app="PassportApp" ng-controller="LoginCtrl">
+<div class="col-sm-12">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <img src="images/logo2.png" alt="logo" width=120px height=80px; class="img-thumbnail padtop5">  
+            
+        </div>
+        <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav navbar-left">
+          	
+            <li><a href="#/home">Home</a></li>
+    		<li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Recipients <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/view/smother">Single Mothers</a></li>
+                    <li><a href="#/view/sfather">Single Fathers</a></li>
+                    <li><a href="#/view/senior">Senior citizens</a></li>
+                    <li><a href="#/view/kids">Kids</a></li>
+                    <li><a href="#/view/family">Families</a></li>
+                    <li><a href="#/view/disbaled">Disabled</a></li>
+                    <li><a href="#/view/education">Education</a></li>
+                    <li><a href="#/view/medical">Medical Treatment</a></li>
+                    <li><a href="#/view/other">Other</a></li>
+                    
+                    <li class="divider"></li>
+                    <li><a href="#/view/all">View All</a></li>
+                </ul>
+             </li>	
+             <li ng-show="currentUser"><a href="#/profile"> My Profile </a></li>
+             <li><a ng-show="currentUser" href="#/settings"> Settings </a></li>
+             <li><a href="#/contact">Contact</a></li>
+
+          </ul>
+          
+           <form class="nav navbar-nav navbar-right" ng-show="currentUser">
+
+                    <div class=" form-group"></div>
+                    <div class="form-group">
+                    </div>
+
+                    <button ng-click="logout()" type="button" class="btn btn-primary">Logout</button>
+
+            </form>
+
+
+		     <div class="container" id="loginForm">
+             <form class="navbar-form navbar-right" id="loginForm" ng-hide="currentUser">
+
+                 <div class="form-group">
+                     <input ng-model="user.username" type="text" placeholder="Username" class="form-control">
+                 </div>
+                 <div class="form-group">
+                     <input ng-model="user.password" type="password" placeholder="Password" class="form-control">
+                 </div>
+
+                 <button ng-click="login(user)" type="button" class="btn btn-primary">Sign In</button>
+	
+	             <button ng-click="go('/register')" type="button" class="btn btn-success">Sign Up</button>
+		
+		 
+             </form>
+             </div>
+             
+        </div><!--/.nav-collapse -->
+      </div>
+   </div>
+  </div>  
+      
+       <div ng-view>
+     
+       </div>
+   
+ </body>
+</html>

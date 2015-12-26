@@ -1,0 +1,23 @@
+﻿body {
+    margin-left:auto;
+}
+
+#registerationLink {
+    padding-top: 2px;
+    padding-left:10px;
+    font-size: 18px;
+    color:ButtonShadow;
+}
+
+#succMsg{
+    color:blue;
+}
+
+#dangerMsg{
+    color:red;
+}
+
+#uploadButton {
+    
+    padding-left:10px;
+}

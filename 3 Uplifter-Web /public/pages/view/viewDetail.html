@@ -1,0 +1,153 @@
+﻿<div class="container">
+ 
+    <div class="container padtop70">
+
+	    <h1 class="text-center text-white"> {{needDetail.name}} </h1>
+		
+        <div class="col-sm-2"></div>
+        
+        
+		
+      
+        <div class="col-sm-8">
+          
+           <div>
+            
+           
+            <h3 class="text-center text-white"> {{needDetail.summary}}</h3>
+		   			
+            <div class="text-center col-sm-3 ">
+             
+                <div class="row">
+                	<img ng-src="{{needDetail.imgurl}}" width="170" height="150" class="img-rounded center-block img-responsive" id="p5">
+                </div>
+                	
+               	<div class="row">
+                 	<a class="font20 text-blue" href="#/publicprof/{{needDetail.username}}">{{needDetail.username}} </a>
+                 </div>
+                 
+                 <div class="row">
+                 	<h2 ng-class="class"  ng-click=bookmark(needDetail.username)> </h3> 
+                 </div>
+                 
+            </div>	
+
+            <div class="col-sm-9">
+                 
+                 <div >
+                 
+                 	<div class="text-cadetBlue"> 
+                   	 {{needDetail.text}}
+                    </div>
+                    
+                    
+                     <h1 class="text-white" > $ {{needDetail.amount}} <small> Needed </small></h3>
+  	    			 <h1 class="text-white pad-left-10" > $ {{receivedAmount}} <small> Received so far </small>
+  	    			 
+  	                   <button ng-click="donate()" type="button" class="btn btn-success pull-right" ng-hide="donateClicked" ng-submit="donate()">Donate</button>
+  	    			 
+  	    			 </h3>
+      
+                  
+                    
+                   
+                   	
+                 
+                 </br>
+                
+                 	
+                 <h4 ng-show="donateClicked" class="text-grey"> Please enter the amount to be donated and a brief message to me !</h4>
+                 
+               
+                 	 </br>
+              		 <form  class="text-grey" id="myForm" name="myForm" ng-show="donateClicked" ng-submit="processDonation()" >
+						
+		                <div class="form-group">
+		                   <label >Amount</label>
+		                    <input ng-model="donation.amount"  type="number" min="1" placeholder="Enter the amount without $ sign" class="form-control width100" ng-required="donateClicked">
+		               		 <span ng-show="myForm.user.$error.required">At least $1 required.</span>
+		                </div>
+		                
+		                <div class="form-group">
+		                 <label >A brief message </label>
+		                    <input ng-model="donation.message"  type="text" placeholder="God bless value !"  class="form-control  width100">
+ 		                </div>
+		
+		                <button  type="submit" name="submit" id="submit" value="Submit" type="button" class="btn btn-success" >Donate</button>
+		                
+		                <button  ng-click="cancel()" type="button" class="btn btn-warning" >Not now</button>
+		                
+           			 </form>
+		         
+		         	</br>
+                    <p ng-show="donationDone" class="alert alert-success" id="succMsg"> <b>Donation received successfully. Thank you for helping me !! </b></p>
+               	</div>
+               	
+               	
+             
+               </div>   
+              </div>
+            
+             </div>
+                
+        <div class="col-sm-2">
+        </div>
+        
+        </div>
+        
+        <hr>
+        
+         <div class="container ">
+
+       	 <div class="col-sm-2">
+         </div>
+         
+         <div class="col-sm-8">
+         
+         	<h3 class="text-white" ng-show="needDetail.comment.length">All comments </h3>
+         	<h3 class="text-white" ng-hide="needDetail.comment.length">Be first to post a comment </h3>
+         	
+				<div class="media well" ng-repeat = "comment in needDetail.comment">
+                     
+                    <div class="media-body">
+                        <h4 class="media-heading"> 
+                         <a class="text-blue" href="#/publicprof/{{comment.commentor}}"> {{comment.commentor}} </a>
+                         
+                            <small class="pull-right">{{comment.commentedOn | date: 'medium'}} </small>
+                        </h4>
+                        {{comment.text}}
+                     </div>
+                </div>
+	
+            	 
+            	 
+	
+	
+
+				<div>
+                    <h4 class="text-white">Leave a Comment:</h4>
+
+                    <form role="form">
+
+                        <div class="form-group">
+
+                            <textarea ng-model = "newComment" class="form-control" rows="3"></textarea>
+	
+                        </div>
+
+                       <button ng-click="postComment()" type="submit" class="btn btn-primary pull-right">Submit</button>
+                        	
+
+                    </form>
+				</div>
+				
+				
+           </div>
+         
+       	 <div class="col-sm-2">
+       	</div>
+        </div>
+        
+</div>
+
+
