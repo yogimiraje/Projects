@@ -6,4 +6,4 @@ Technology: Python
 3. A simple social networking platform for less privileged to share their stories, pictures, and seek
 financial help.
 Technology stack:  AngularJS, NodeJS, mongoDB, HTML, CSS, Bootstrap.
-Live Demo: http://upliftermirajey.rhcloud.com
+Live Demo: http://upliftermirajey.rhcloud.com 
