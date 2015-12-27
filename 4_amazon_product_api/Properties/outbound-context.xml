@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-file="http://www.springframework.org/schema/integration/file"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+			http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+			http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+			http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+			http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd 
+			http://www.springframework.org/schema/integration/kafka http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd
+			http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:property-placeholder
+		location="file:////Users/Yogi/git/Projects/4_amazon_product_api/Properties/app.properties" />
+ 
+	<!-- ======================================== Reading categories  ================================= -->
+
+	<int:channel id="categoryIn" />
+    <int:channel id="bestSellarJson">
+        <int:queue/>
+    </int:channel>	 
+    
+	<int-file:inbound-channel-adapter id="categoryFileIn"
+    directory="file:${input.directory}">
+    	 
+     </int-file:inbound-channel-adapter>
+    
+    <int:service-activator input-channel="categoryFileIn" ref="fileProcessor" method="processFile" output-channel="besSellarList"/> 
+    
+    <int:splitter input-channel="besSellarList" output-channel="bestSellarJson"/>
+    
+    <int-kafka:outbound-channel-adapter
+            id="kafkaOutboundChannelAdapter" 
+            kafka-producer-context-ref="kafkaProducerContext"
+            channel="bestSellarJson">
+        <int:poller fixed-delay="1000" time-unit="MILLISECONDS" receive-timeout="0" task-executor="taskExecutor"/>
+    </int-kafka:outbound-channel-adapter>
+
+    <task:executor id="taskExecutor" pool-size="5" keep-alive="120" queue-capacity="500"/>
+
+    <int-kafka:producer-context id="kafkaProducerContext">
+        <int-kafka:producer-configurations>
+            <int-kafka:producer-configuration broker-list="127.0.0.1:9092"
+                                              topic="event-stream" 
+                                              compression-codec="default"/>
+        </int-kafka:producer-configurations>
+    </int-kafka:producer-context>
+    
+    
+  	<int:poller default="true" fixed-rate="1" />
+  	 <int-kafka:zookeeper-connect id="zookeeperConnect"
+                                 zk-connect="127.0.0.1:2181"
+                                 zk-connection-timeout="6000"
+                                 zk-session-timeout="6000"
+                                 zk-sync-time="2000"/>
+  	
+  
+  </beans>
+	 
