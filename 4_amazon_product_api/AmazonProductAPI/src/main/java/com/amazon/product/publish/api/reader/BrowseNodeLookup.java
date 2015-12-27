@@ -17,15 +17,15 @@ public class BrowseNodeLookup {
 	/*
      * Your AWS Access Key ID, as taken from the AWS Your Account page.
      */
-    private static final String AWS_ACCESS_KEY_ID = "AKIAIQ57A6QY77QGZCOA";
+    private static final String AWS_ACCESS_KEY_ID = "bhjhhvv";
 
     /*
      * Your AWS Secret Key corresponding to the above ID, as taken from the AWS
      * Your Account page.
      */
-    private static final String AWS_SECRET_KEY = "0Aj6e3aUPWW3+gQSa78v0t/33CEeAMj9uOZk4jgw";
+    private static final String AWS_SECRET_KEY = "hhhh";
 
-    private static final String AWS_ASSOCIATE_ID = "portfolio073-20";
+    private static final String AWS_ASSOCIATE_ID = "vvv";
 
     
     /*
