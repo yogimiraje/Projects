@@ -7,3 +7,5 @@ Technology: Python
 financial help.  
 Technology stack:  AngularJS, NodeJS, mongoDB, HTML, CSS, Bootstrap.  
 Live Demo: http://upliftermirajey.rhcloud.com  
+4. A project to publish Amazon's best sellar products to messaging queue. It reads the category Ids from a text file, calls the Amazon   Advertising API and builds the best sellar list in the form of Json and publishing into Kafka topic.  
+Technology Stack: Java, Spring Boot, Spring Integration, Kafka  
