@@ -17,20 +17,20 @@ public class BrowseNodeLookup {
 	/*
      * Your AWS Access Key ID, as taken from the AWS Your Account page.
      */
-    private static final String AWS_ACCESS_KEY_ID = "bhjhhvv";
+    private static final String AWS_ACCESS_KEY_ID = "";
 
     /*
      * Your AWS Secret Key corresponding to the above ID, as taken from the AWS
      * Your Account page.
      */
-    private static final String AWS_SECRET_KEY = "hhhh";
+    private static final String AWS_SECRET_KEY = "";
 
-    private static final String AWS_ASSOCIATE_ID = "vvv";
+    private static final String AWS_ASSOCIATE_ID = "";
 
     
     /*
      * Use the end-point according to the region you are interested in.
-     */
+     */		
     private static final String ENDPOINT = "webservices.amazon.com";
 
     public BestSellarsByCtgry lookupNode(String nodeID) {

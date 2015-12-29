@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Service;
 
@@ -26,16 +27,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class FileProcessor {
 	private Logger log = Logger.getLogger(FileProcessor.class);
   
-	public List<String> processFile(Message<?> message)  {
+	public List<Message<String>> processFile(Message<?> message)  {
     	log.info("In processFile");
     	String fileName =  message.getPayload().toString();
     	log.info("Message content " + fileName);
-    	List<String> bestSellarList = new ArrayList<String>();
+    	//List<String> bestSellarList = new ArrayList<String>();
+    	List<Message<String>> bestSellarList = new ArrayList<Message<String>>();
+
     	try{
     		@SuppressWarnings("resource")
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
     	    String line;
-    	    
     	    while ((line = br.readLine()) != null) {
     	       log.info(line);
     	       
@@ -44,7 +46,9 @@ public class FileProcessor {
     	       bestSellarsByCtgry = bspb.findBestSellarProduct(line);
     	       String bestSellarJson = new ObjectMapper().writeValueAsString(bestSellarsByCtgry);
     	       log.info(bestSellarJson);
-    	       bestSellarList.add(bestSellarJson);
+    	       Message<String> messageJson = MessageBuilder.withPayload(bestSellarJson).build();
+
+    	       bestSellarList.add(messageJson);
     	    }
     	    return bestSellarList;
         

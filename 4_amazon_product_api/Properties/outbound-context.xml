@@ -25,22 +25,25 @@
 	<!-- ======================================== Reading categories  ================================= -->
 
 	<int:channel id="categoryIn" />
+	<int:channel id="bestSellarList" />
+	
     <int:channel id="bestSellarJson">
         <int:queue/>
     </int:channel>	 
     
 	<int-file:inbound-channel-adapter id="categoryFileIn"
-    directory="file:${input.directory}">
-    	 
-     </int-file:inbound-channel-adapter>
+    directory="file:${input.directory}"/>
+  
     
-    <int:service-activator input-channel="categoryFileIn" ref="fileProcessor" method="processFile" output-channel="besSellarList"/> 
+    <int:service-activator input-channel="categoryFileIn" ref="fileProcessor" method="processFile" output-channel="bestSellarList"/> 
     
-    <int:splitter input-channel="besSellarList" output-channel="bestSellarJson"/>
+    <int:splitter input-channel="bestSellarList" output-channel="bestSellarJson"/>
     
+<!--     <int:service-activator input-channel="bestSellarJson" ref="messagePrinter" ></int:service-activator>
+ -->    
     <int-kafka:outbound-channel-adapter
             id="kafkaOutboundChannelAdapter" 
-            kafka-producer-context-ref="kafkaProducerContext"
+            kafka-producer-context-ref="kafkaProducerContext" 
             channel="bestSellarJson">
         <int:poller fixed-delay="1000" time-unit="MILLISECONDS" receive-timeout="0" task-executor="taskExecutor"/>
     </int-kafka:outbound-channel-adapter>
@@ -49,7 +52,7 @@
 
     <int-kafka:producer-context id="kafkaProducerContext">
         <int-kafka:producer-configurations>
-            <int-kafka:producer-configuration broker-list="127.0.0.1:9092"
+            <int-kafka:producer-configuration broker-list="localhost:9092" async="true" 
                                               topic="event-stream" 
                                               compression-codec="default"/>
         </int-kafka:producer-configurations>
@@ -57,11 +60,11 @@
     
     
   	<int:poller default="true" fixed-rate="1" />
-  	 <int-kafka:zookeeper-connect id="zookeeperConnect"
+  	<!--  <int-kafka:zookeeper-connect id="zookeeperConnect"
                                  zk-connect="127.0.0.1:2181"
                                  zk-connection-timeout="6000"
                                  zk-session-timeout="6000"
-                                 zk-sync-time="2000"/>
+                                 zk-sync-time="2000"/> -->
   	
   
   </beans>
