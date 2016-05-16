@@ -9,5 +9,5 @@ Technology stack:  AngularJS, NodeJS, mongoDB, HTML, CSS, Bootstrap.
 Live Demo: http://upliftermirajey.rhcloud.com  
 4. Interactive data visualization platform for aquaponics systems to analyze systems data such as pH, temperature, nitrite, oxygen etc. 
 Technology: Python, Flask, Javascript
-Website: https://pf1010.systemsbiology.net/dav/explore 
+Website: https://pf1010.systemsbiology.net/dav/explore   
 5.Data mining project to apply machine learning techniques to examine the impact of debate on public sentiment for election candidates on GOP debate related tweets. Technology Stack: Java, Python, NLTK, SKlearn
