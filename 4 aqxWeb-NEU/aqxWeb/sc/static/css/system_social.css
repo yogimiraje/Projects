@@ -1,0 +1,58 @@
+.systemDiv {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: justify;
+}
+
+.leftPaneDiv, .rightPaneDiv {
+    border-radius: 25px;
+    border: 1px solid #23434d;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #f0f0f5;
+}
+
+.centerPaneDiv {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.participantImage, .subscriberImage, .pendingParticipantImage {
+    height: 40px;
+    width: 40px;
+}
+
+.participantDiv, .subscriberDiv {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100px;
+}
+
+.pendingRequests {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100px;
+}
+
+h4 {
+    color: #449d44;
+}
+
+
+/* Horizontal Rule Styling */
+hr {
+    display: block;
+    border-width: 1px;
+    border-top: 1px solid #001a00;
+}
+
+.cogWheelIcon {
+    height: 45px;
+    width: 45px;
+}
+
+#map {
+    width: auto;
+    height: 250px;
+    border: 1px solid #23434d;
+}

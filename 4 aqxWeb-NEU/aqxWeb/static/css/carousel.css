@@ -1,0 +1,89 @@
+#navbar-bottom {
+    margin-bottom: 0;
+}
+
+/***************
+
+Carousel
+
+***************/
+.carousel {
+    height: 65vh;
+    margin-top: -10px;
+    margin-bottom: 60px;
+}
+
+.carousel-indicators {
+    z-index: 20;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 50px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.carousel .item {
+    height: 65vh;
+    background-color: #777;
+}
+
+.image1 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/aqx1.jpg")
+}
+
+.image2 {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/aqx2.jpg");
+}
+
+.image3 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/aqx3.jpg");
+}
+
+/***************
+
+Marketing Content
+
+***************/
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: normal;
+}
+.marketing .col-lg-4 p {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+/***************
+
+Featurettes
+
+***************/
+.featurette-divider {
+    margin: 80px 0;
+}
+
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}

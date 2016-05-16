@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Search Friends{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h3 class="page-header"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Friends</h3>
+        <ul class="nav nav-tabs">
+            <li><a href="{{ url_for('social.friends') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;MyFriends</a></li>
+            <li class="active"><a href="{{ url_for('social.searchFriends') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search Friends</a></li>
+            <li><a href="{{ url_for('social.pendingRequest') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Pending Requests</a></li>
+            <li><a href="{{ url_for('social.recofriends') }}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;Recommended Friends</a></li>
+        </ul>
+        <br>
+
+        <div class="container">
+            <div class="input-group col-md-12">
+                <input type="text" id="autocomplete" class="form-control input-lg" placeholder="Search all Friends"/>
+                <p hidden id="autocomplete-org"></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.js"></script>
+    <script type=text/javascript>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
+    <script>
+        //Script to search for users while typing a person's name, using autocompletion feature
+        $(function () {
+            $.ajax({
+                url: '{{ url_for("social.getfriends") }}'
+            }).done(function (data) {
+                $("#autocomplete").autocomplete({
+                            minLength: 1,
+                            source: data.json_list,
+                            focus: function (event, ui) {
+                                $("#autocomplete").val(ui.item.label);
+                                return false;
+                            },
+                            select: function (event, ui) {
+                                $("#autocomplete").val(ui.item.label);
+                                $("#autocomplete-org").html(ui.item.org);
+                                return false;
+                            }
+                        })
+                        .autocomplete("instance")._renderItem = function (ul, item) {
+                    var store_sql_id = item.user_sql_id;
+                    var google_id = item.gid;
+
+                    var $a = $("<div></div>").click(function () {
+                         window.location = "profile/" + google_id;
+                    });
+                    $("<b id='profile' class='col-md-6'></b>").text(item.label).appendTo($a);
+                    
+                    if (item.friend_status == "Add Friend") {
+                        $("<button type='button' class='btn btn-primary'></button>").text(item.friend_status).appendTo($a).click(function () {
+
+                            $.ajax({
+                                type: 'post',
+                                url: 'send_friend_request/' + store_sql_id,
+                                success: function (result) {
+                                    alert("Your friend request has been sent!")
+                                    location.reload()
+                                }
+                            });
+                        });
+                    }
+                    else if (item.friend_status == "Sent Friend Request") {
+                        $("<button type='button' class='btn btn-info'></button>").text(item.friend_status).appendTo($a).click(function () {
+                            alert("You have already sent this user a friend request")
+                        });
+                    }
+                    else if (item.friend_status == "Received Friend Request") {
+                        $("<button type='button' class='btn btn-info'></button>").text(item.friend_status).appendTo($a).click(function () {
+                            alert(" This user has sent you a friend request. Please accept or decline in pending friend requests tab.")
+                        });
+                    }
+                    else if (item.friend_status == "Friends") {
+                        $("<button type='button' class='btn btn-success'></button>").text(item.friend_status).appendTo($a).click(function () {
+                            alert("You are already friends with this user")
+                        });
+                    }
+                    else {
+                        $("<a id='dummy' class='col-sm-6'></a>").text(item.friend_status).appendTo($a);
+                    }
+
+                    $("<br>").appendTo($a);
+                    $("<em class='m-org'></em>").text(item.org).appendTo($a);
+
+                    return $("<li></li>").append($a).appendTo(ul);
+
+                };
+            });
+        });
+    </script>
+{% endblock %}

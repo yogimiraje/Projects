@@ -1,0 +1,10 @@
+.pendingParticipantImage, .adminImage, .participantImage, .subscriberImage {
+    height: 40px;
+    width: 40px;
+}
+
+.pendingParticipantResults, .adminResults, .participantResults, .subscriberResults {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 300px;
+}
